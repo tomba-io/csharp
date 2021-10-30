@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net461;netstandard2.0;</TargetFrameworks>
+    <PackageId>Tomba</PackageId>
+    <Version>1.0.0</Version>
+    <PackageReleaseNotes>$(PACKAGE_RELEASE_NOTES)</PackageReleaseNotes>
+    <Authors>Tomba technology web service LLC</Authors>
+    <Company>Tomba technology web service LLC</Company>
+    <Copyright>Copyright © Tomba technology web service LLC 2021</Copyright>
+    <Description>
+      This is the official C# client library for the Tomba.io .
+      Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.
+      Email Finder generates or retrieves the most likely email address from a domain name, a first name and a last name.
+      Email verify checks the deliverability of a given email address, verifies if it has been found in our database, and returns their sources.
+    </Description>
+    <PackageTags>tomba, email, email-finder, email-verification</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://tomba.io</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/tomba-io/csharp/</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <None Include="..\..\assets\icon.png" Pack="true" PackagePath="$(PackageIcon)"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="$(PackageReadmeFile)"/>
+  </ItemGroup>
+
+</Project>
