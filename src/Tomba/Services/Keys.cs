@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Get your keys.
-        // <a href="https://developer.tomba.io/#keys">keys</a>.
+        // <a href="https://docs.tomba.io/api/keys">keys</a>.
         /// <para>
         /// Returns a list of your keys.
         /// </para>

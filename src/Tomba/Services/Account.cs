@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Get Account
-        //  <a href="https://developer.tomba.io/#account-information">Account Information</a>.
+        //  <a href="https://docs.tomba.io/api/account#get-account">Account Information</a>.
         /// <para>
         /// Returns information about the current account.
         /// </para>

@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// get Email Count
-        // <a href="https://developer.tomba.io/#email-count">Email Count</a>.
+        // <a href="https://docs.tomba.io/api/~endpoints#email-count">Email Count</a>.
         /// <para>
         /// Domain name from which you want to find the email addresses.
         /// </para>

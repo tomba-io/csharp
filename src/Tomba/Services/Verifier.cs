@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Email Verifier
-        // <a href="https://developer.tomba.io/#email-verifier">Email Verifier</a>.
+        // <a href="https://docs.tomba.io/api/verifier#email-verifier">Email Verifier</a>.
         /// <para>
         /// verify the deliverability of an email address.
         /// </para>

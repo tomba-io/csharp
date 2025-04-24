@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Email Sources
-        // <a href="https://developer.tomba.io/#email-sources">Email Sources</a>.
+        // <a href="https://docs.tomba.io/api/~endpoints#email-sources">Email Sources</a>.
         /// <para>
         /// Find email address source somewhere on the web.
         /// </para>

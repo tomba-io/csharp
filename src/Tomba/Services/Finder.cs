@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Email Finder
-        // <a href="https://developer.tomba.io/#email-finder">Email Finder</a>.
+        // <a href="https://docs.tomba.io/api/finder#email-finder">Email Finder</a>.
         /// <para>
         /// generates or retrieves the most likely email address from a domain name, a
         /// first name and a last name.

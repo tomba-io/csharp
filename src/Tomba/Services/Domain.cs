@@ -12,7 +12,7 @@ namespace Tomba
 
         /// <summary>
         /// Domain Search
-        // <a href="https://developer.tomba.io/#domain-search">Domain Search</a>.
+        // <a href="https://docs.tomba.io/api/finder#domain-search">Domain Search</a>.
         /// <para>
         /// You can use this endpoint to show different browser icons to your users.
         /// The code argument receives the browser code as it appears in your user
