@@ -604,9 +604,8 @@ dotnet test
 ### Resources
 
 - [API Documentation](https://docs.tomba.io/) — Complete API reference
-- [Developer Hub](https://developer.tomba.io/) — Guides, tutorials, and best practices
 - [Blog](https://tomba.io/blog) — Tips on email finding and outreach
-- [FAQ](https://tomba.io/faq) — Frequently asked questions
+- [FAQ](https://help.tomba.io/en/) — Frequently asked questions
 
 ---
 
