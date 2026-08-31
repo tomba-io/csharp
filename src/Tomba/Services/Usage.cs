@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,11 +9,13 @@ namespace Tomba
         public Usage(Client client) : base(client) { }
 
         /// <summary>
-        /// get Usage
-        /// <para>
-        /// Returns a your monthly requests
-        /// </para>
+        /// Returns your monthly API usage statistics.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/account#retrieve-api-usage">Usage API</see>
+        /// </remarks>
+        /// <returns>Usage response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetUsage()
         {
             string path = "/usage";

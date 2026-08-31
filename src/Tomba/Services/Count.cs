@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,12 +9,14 @@ namespace Tomba
         public Count(Client client) : base(client) { }
 
         /// <summary>
-        /// get Email Count
-        // <a href="https://docs.tomba.io/api/~endpoints#email-count">Email Count</a>.
-        /// <para>
-        /// Domain name from which you want to find the email addresses.
-        /// </para>
+        /// Returns the total number of email addresses found for a domain.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/finder#email-count">Email Count API</see>
+        /// </remarks>
+        /// <param name="domain">The domain name to get the email count for</param>
+        /// <returns>Email count response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> EmailCount(string domain)
         {
             string path = "/email-count";

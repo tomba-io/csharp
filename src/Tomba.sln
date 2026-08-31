@@ -1,9 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.128
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tomba", "Tomba\Tomba.csproj", "{ABD3EB63-B648-49D6-B7FD-C17A762A3EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tomba.Tests", "..\tests\Tomba.Tests\Tomba.Tests.csproj", "{F1A2B3C4-D5E6-7890-ABCD-EF1234567890}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ABD3EB63-B648-49D6-B7FD-C17A762A3EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABD3EB63-B648-49D6-B7FD-C17A762A3EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABD3EB63-B648-49D6-B7FD-C17A762A3EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A2B3C4-D5E6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A2B3C4-D5E6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A2B3C4-D5E6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A2B3C4-D5E6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

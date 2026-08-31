@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,14 +9,18 @@ namespace Tomba
         public Finder(Client client) : base(client) { }
 
         /// <summary>
-        /// Email Finder
-        // <a href="https://docs.tomba.io/api/finder#email-finder">Email Finder</a>.
-        /// <para>
-        /// generates or retrieves the most likely email address from a domain name, a
-        /// first name and a last name.
-        /// </para>
+        /// Generates or retrieves the most likely email address from a domain name, a first name and a last name.
         /// </summary>
-        public async Task<HttpResponseMessage> EmailFinder(string domain, string firstName, string lastName)
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/finder#email-finder">Email Finder API</see>
+        /// </remarks>
+        /// <param name="domain">The domain name of the company</param>
+        /// <param name="firstName">The first name of the person</param>
+        /// <param name="lastName">The last name of the person</param>
+        /// <param name="webhookUrl">Webhook URL for async notifications</param>
+        /// <returns>Email finder response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
+        public async Task<HttpResponseMessage> EmailFinder(string domain, string firstName, string lastName, string webhookUrl = null)
         {
             string path = "/email-finder/{domain}".Replace("{domain}", domain);
 
@@ -27,6 +29,11 @@ namespace Tomba
                 { "first_name", firstName },
                 { "last_name", lastName }
             };
+
+            if (!string.IsNullOrEmpty(webhookUrl))
+            {
+                parameters.Add("webhook_url", webhookUrl);
+            }
 
             Dictionary<string, string> headers = new Dictionary<string, string>()
             {

@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,12 +9,13 @@ namespace Tomba
         public Account(Client client) : base(client) { }
 
         /// <summary>
-        /// Get Account
-        //  <a href="https://docs.tomba.io/api/account#get-account">Account Information</a>.
-        /// <para>
         /// Returns information about the current account.
-        /// </para>
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/account#get-account">Account API</see>
+        /// </remarks>
+        /// <returns>Account response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetAccount()
         {
             string path = "/me";

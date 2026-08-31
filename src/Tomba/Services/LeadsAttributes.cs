@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,14 +9,16 @@ namespace Tomba
         public LeadsAttributes(Client client) : base(client) { }
 
         /// <summary>
-        /// Get Lead Attributes
-        /// <para>
-        /// Returns a list of Lead Attributes.
-        /// </para>
+        /// Returns a list of lead attributes.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-attributes">Get Lead Attributes API</see>
+        /// </remarks>
+        /// <returns>Lead attributes response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetLeadAttributes()
         {
-            string path = "/leads/attributes/{id}";
+            string path = "/leads/attributes";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -33,11 +33,14 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Delete Lead Attribute
-        /// <para>
-        /// Delete a specific Attributes by passing id.
-        /// </para>
+        /// Deletes a specific lead attribute by ID.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-attributes#delete-a-lead-attribute">Delete Lead Attribute API</see>
+        /// </remarks>
+        /// <param name="id">The ID of the attribute to delete</param>
+        /// <returns>Delete attribute response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DeleteLeadAttribute(string id)
         {
             string path = "/leads/attributes/{id}".Replace("{id}", id);
@@ -55,14 +58,16 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Create Lead Attribute
-        /// <para>
-        /// Create a new Attributes with the name and type request parameter.
-        /// </para>
+        /// Creates a new lead attribute with the given name and type.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-attributes#create-a-lead-attribute">Create Lead Attribute API</see>
+        /// </remarks>
+        /// <returns>Create attribute response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CreateLeadAttribute()
         {
-            string path = "/leads/attributes/{id}";
+            string path = "/leads/attributes";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -77,11 +82,14 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Update Lead Attribute
-        /// <para>
-        /// Update the fields of a Attributes using id.
-        /// </para>
+        /// Updates the fields of a lead attribute by ID.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-attributes#update-a-lead-attribute">Update Lead Attribute API</see>
+        /// </remarks>
+        /// <param name="id">The ID of the attribute to update</param>
+        /// <returns>Update attribute response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> UpdateLeadAttribute(string id)
         {
             string path = "/leads/attributes/{id}".Replace("{id}", id);

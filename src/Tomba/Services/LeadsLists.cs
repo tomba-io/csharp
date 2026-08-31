@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,14 +9,16 @@ namespace Tomba
         public LeadsLists(Client client) : base(client) { }
 
         /// <summary>
-        /// Get Leads Lists
-        /// <para>
-        /// Returns a list of leads lists..
-        /// </para>
+        /// Returns a list of leads lists.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-lists">Get Leads Lists API</see>
+        /// </remarks>
+        /// <returns>Leads lists response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetLists()
         {
-            string path = "/leads_lists/{id}";
+            string path = "/leads_lists";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -33,11 +33,14 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Delete List ID
-        /// <para>
-        /// Delete a specific list by passing id.
-        /// </para>
+        /// Deletes a specific leads list by ID.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-lists#delete-leads-list">Delete Leads List API</see>
+        /// </remarks>
+        /// <param name="id">The ID of the list to delete</param>
+        /// <returns>Delete list response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DeleteListId(string id)
         {
             string path = "/leads_lists/{id}".Replace("{id}", id);
@@ -55,14 +58,16 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Create new List
-        /// <para>
-        /// Create a new leads list with the name request parameter
-        /// </para>
+        /// Creates a new leads list with the given name.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-lists#create-leads-list">Create Leads List API</see>
+        /// </remarks>
+        /// <returns>Create list response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CreateList()
         {
-            string path = "/leads_lists/{id}";
+            string path = "/leads_lists";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -77,11 +82,14 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Update List ID
-        /// <para>
-        /// Update the fields of a list using id.
-        /// </para>
+        /// Updates the fields of a leads list by ID.
         /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/lead-lists#update-leads-list">Update Leads List API</see>
+        /// </remarks>
+        /// <param name="id">The ID of the list to update</param>
+        /// <returns>Update list response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> UpdateListId(string id)
         {
             string path = "/leads_lists/{id}".Replace("{id}", id);

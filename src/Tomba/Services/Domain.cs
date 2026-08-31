@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -11,16 +9,20 @@ namespace Tomba
         public Domain(Client client) : base(client) { }
 
         /// <summary>
-        /// Domain Search
-        // <a href="https://docs.tomba.io/api/finder#domain-search">Domain Search</a>.
-        /// <para>
-        /// You can use this endpoint to show different browser icons to your users.
-        /// The code argument receives the browser code as it appears in your user
-        /// /account/sessions endpoint. Use width, height and quality arguments to
-        /// change the output settings.
-        /// </para>
+        /// Search emails for a domain. Returns all email addresses found on the internet for a given domain.
         /// </summary>
-        public async Task<HttpResponseMessage> DomainSearch(string domain, int? page = 1, int? limit = 10, string department = "")
+        /// <remarks>
+        /// See <see href="https://docs.tomba.io/api/finder#domain-search">Domain Search API</see>
+        /// </remarks>
+        /// <param name="domain">The domain name to search</param>
+        /// <param name="page">Page number (default 1)</param>
+        /// <param name="limit">Number of results per page (default 10)</param>
+        /// <param name="department">Filter by department</param>
+        /// <param name="enrichMobile">Whether to enrich mobile phone data</param>
+        /// <param name="webhookUrl">Webhook URL for async notifications</param>
+        /// <returns>Domain search response</returns>
+        /// <exception cref="TombaException">Thrown on API error</exception>
+        public async Task<HttpResponseMessage> DomainSearch(string domain, int? page = 1, int? limit = 10, string department = "", bool? enrichMobile = null, string webhookUrl = null)
         {
             string path = "/domain-search/{domain}".Replace("{domain}", domain);
 
@@ -30,6 +32,16 @@ namespace Tomba
                 { "limit", limit },
                 { "department", department }
             };
+
+            if (enrichMobile.HasValue)
+            {
+                parameters.Add("enrich_mobile", enrichMobile.Value);
+            }
+
+            if (!string.IsNullOrEmpty(webhookUrl))
+            {
+                parameters.Add("webhook_url", webhookUrl);
+            }
 
             Dictionary<string, string> headers = new Dictionary<string, string>()
             {

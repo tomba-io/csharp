@@ -4,26 +4,25 @@ using System.Threading.Tasks;
 
 namespace Tomba
 {
-    public class Sources : Service
+    public class Technology : Service
     {
-        public Sources(Client client) : base(client) { }
+        public Technology(Client client) : base(client) { }
 
         /// <summary>
-        /// Finds email address sources somewhere on the web.
+        /// Returns a list of technologies used by the given domain.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/email#email-sources">Email Sources API</see>
+        /// See <see href="https://docs.tomba.io/api/domain#technology">Technology API</see>
         /// </remarks>
-        /// <param name="email">The email address to find sources for</param>
-        /// <returns>Email sources response</returns>
+        /// <param name="domain">The domain name to detect technologies for</param>
+        /// <returns>Technology list response</returns>
         /// <exception cref="TombaException">Thrown on API error</exception>
-        public async Task<HttpResponseMessage> EmailSources(string email)
+        public async Task<HttpResponseMessage> ListAsync(string domain)
         {
-            string path = "/email-sources";
+            string path = "/technology/{domain}".Replace("{domain}", domain);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "email", email }
             };
 
             Dictionary<string, string> headers = new Dictionary<string, string>()

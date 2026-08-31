@@ -4,26 +4,26 @@ using System.Threading.Tasks;
 
 namespace Tomba
 {
-    public class Sources : Service
+    public class Format : Service
     {
-        public Sources(Client client) : base(client) { }
+        public Format(Client client) : base(client) { }
 
         /// <summary>
-        /// Finds email address sources somewhere on the web.
+        /// Returns the email format used by a domain, along with a confidence score.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/email#email-sources">Email Sources API</see>
+        /// See <see href="https://docs.tomba.io/api/finder#email-format">Email Format API</see>
         /// </remarks>
-        /// <param name="email">The email address to find sources for</param>
-        /// <returns>Email sources response</returns>
+        /// <param name="domain">The domain name to get the email format for</param>
+        /// <returns>Email format response</returns>
         /// <exception cref="TombaException">Thrown on API error</exception>
-        public async Task<HttpResponseMessage> EmailSources(string email)
+        public async Task<HttpResponseMessage> EmailFormatAsync(string domain)
         {
-            string path = "/email-sources";
+            string path = "/email-format";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "email", email }
+                { "domain", domain }
             };
 
             Dictionary<string, string> headers = new Dictionary<string, string>()
