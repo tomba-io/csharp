@@ -581,10 +581,9 @@ dotnet test
 
 ### Integrations
 
-- [Salesforce](https://tomba.io/salesforce) — Enrich your Salesforce CRM with verified emails
-- [HubSpot](https://tomba.io/hubspot) — Sync found emails directly to HubSpot
-- [Zapier](https://tomba.io/zapier) — Connect Tomba to 5,000+ apps
-- [Google Sheets](https://tomba.io/google-sheets) — Find and verify emails inside Google Sheets
+- [HubSpot](https://tomba.io/integrations/hubspot) — Sync found emails directly to HubSpot
+- [Zapier](https://tomba.io/integrations/zapier) — Connect Tomba to 5,000+ apps
+- [Google Sheets](https://tomba.io/sheets) — Find and verify emails inside Google Sheets
 
 ### Other SDKs
 
