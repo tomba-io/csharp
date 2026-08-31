@@ -6,6 +6,22 @@ namespace Tomba
 {
     public class Bulk : Service
     {
+        private static readonly string[] ValidTypes = { "search", "similar", "company", "finder", "enrich", "linkedin", "author", "verifier", "phone-finder", "phone-validator" };
+
+        private void ValidateType(string type)
+        {
+            if (string.IsNullOrEmpty(type))
+            {
+                throw new TombaException("Missing required parameter: \"type\"");
+            }
+            if (System.Array.IndexOf(ValidTypes, type) < 0)
+            {
+                throw new TombaException(
+                    $"Invalid bulk type: \"{type}\". Must be one of: {string.Join(", ", ValidTypes)}"
+                );
+            }
+        }
+
         public Bulk(Client client) : base(client) { }
 
         /// <summary>
@@ -20,6 +36,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> ListAsync(string type, Dictionary<string, object> parameters = null)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}".Replace("{type}", type);
 
             if (parameters == null)
@@ -47,6 +65,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -65,7 +85,7 @@ namespace Tomba
         /// Creates a new bulk task.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#create-bulk">Create Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Create Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="data">Dictionary of bulk task data</param>
@@ -73,6 +93,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CreateAsync(string type, Dictionary<string, object> data)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}".Replace("{type}", type);
 
             Dictionary<string, string> headers = new Dictionary<string, string>()
@@ -87,7 +109,7 @@ namespace Tomba
         /// Launches a bulk task for processing.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#launch-bulk">Launch Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Launch Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task to launch</param>
@@ -95,6 +117,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> LaunchAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}/launch".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -113,7 +137,7 @@ namespace Tomba
         /// Deletes a bulk task by type and ID.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#delete-bulk">Delete Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Delete Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task to delete</param>
@@ -121,6 +145,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DeleteAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -139,7 +165,7 @@ namespace Tomba
         /// Archives a bulk task by type and ID.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#archive-bulk">Archive Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Archive Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task to archive</param>
@@ -147,6 +173,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> ArchiveAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}/archive".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -165,7 +193,7 @@ namespace Tomba
         /// Renames a bulk task.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#rename-bulk">Rename Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Rename Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task to rename</param>
@@ -174,6 +202,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> RenameAsync(string type, string id, string name)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}/rename".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -193,7 +223,7 @@ namespace Tomba
         /// Returns the progress of a bulk task.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#bulk-progress">Bulk Progress API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Bulk Progress API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task</param>
@@ -201,6 +231,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> ProgressAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}/progress".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -219,7 +251,7 @@ namespace Tomba
         /// Downloads the results of a completed bulk task.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.tomba.io/api/bulk#download-bulk">Download Bulk API</see>
+        /// See <see href="https://docs.tomba.io/api/bulk">Download Bulk API</see>
         /// </remarks>
         /// <param name="type">The bulk type</param>
         /// <param name="id">The ID of the bulk task to download</param>
@@ -227,6 +259,8 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DownloadAsync(string type, string id)
         {
+            ValidateType(type);
+
             string path = "/bulk/{type}/{id}/download".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
