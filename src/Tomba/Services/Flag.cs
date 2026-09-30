@@ -20,7 +20,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> ListFlagsAsync(int? page = null, int? limit = null)
         {
-            string path = "/flags";
+            string path = "/flag";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -45,27 +45,31 @@ namespace Tomba
         }
 
         /// <summary>
-        /// Flags an email address as invalid, with an optional reason.
+        /// Flags incorrect data with the specified type and value.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.tomba.io/api/flag#flag-incorrect-data">Create Flag API</see>
         /// </remarks>
-        /// <param name="email">The email address to flag</param>
-        /// <param name="reason">Optional reason for flagging</param>
+        /// <param name="flagType">The type of flag (e.g., email, domain)</param>
+        /// <param name="value">The value to flag</param>
+        /// <param name="reason">Reason for flagging</param>
+        /// <param name="comment">Optional comment</param>
         /// <returns>Create flag response</returns>
         /// <exception cref="TombaException">Thrown on API error</exception>
-        public async Task<HttpResponseMessage> CreateFlagAsync(string email, string reason = null)
+        public async Task<HttpResponseMessage> CreateFlagAsync(string flagType, string value, string reason, string comment = null)
         {
-            string path = "/flags";
+            string path = "/flag";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "email", email }
+                { "flag_type", flagType },
+                { "value", value },
+                { "reason", reason }
             };
 
-            if (!string.IsNullOrEmpty(reason))
+            if (!string.IsNullOrEmpty(comment))
             {
-                parameters.Add("reason", reason);
+                parameters.Add("comment", comment);
             }
 
             Dictionary<string, string> headers = new Dictionary<string, string>()

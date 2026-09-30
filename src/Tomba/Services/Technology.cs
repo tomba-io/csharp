@@ -19,10 +19,11 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> ListAsync(string domain)
         {
-            string path = "/technology/{domain}".Replace("{domain}", domain);
+            string path = "/technology";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "domain", domain }
             };
 
             Dictionary<string, string> headers = new Dictionary<string, string>()

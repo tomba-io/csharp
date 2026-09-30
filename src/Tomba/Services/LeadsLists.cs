@@ -63,14 +63,16 @@ namespace Tomba
         /// <remarks>
         /// See <see href="https://docs.tomba.io/api/lead-lists#create-leads-list">Create Leads List API</see>
         /// </remarks>
+        /// <param name="name">The name of the list to create</param>
         /// <returns>Create list response</returns>
         /// <exception cref="TombaException">Thrown on API error</exception>
-        public async Task<HttpResponseMessage> CreateList()
+        public async Task<HttpResponseMessage> CreateList(string name)
         {
             string path = "/leads_lists";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "name", name }
             };
 
             Dictionary<string, string> headers = new Dictionary<string, string>()
@@ -88,14 +90,16 @@ namespace Tomba
         /// See <see href="https://docs.tomba.io/api/lead-lists#update-leads-list">Update Leads List API</see>
         /// </remarks>
         /// <param name="id">The ID of the list to update</param>
+        /// <param name="name">The new name for the list</param>
         /// <returns>Update list response</returns>
         /// <exception cref="TombaException">Thrown on API error</exception>
-        public async Task<HttpResponseMessage> UpdateListId(string id)
+        public async Task<HttpResponseMessage> UpdateListId(string id, string name)
         {
             string path = "/leads_lists/{id}".Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "name", name }
             };
 
             Dictionary<string, string> headers = new Dictionary<string, string>()

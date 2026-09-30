@@ -18,7 +18,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> GetLeadAttributes()
         {
-            string path = "/leads/attributes";
+            string path = "/attributes";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -43,7 +43,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DeleteLeadAttribute(string id)
         {
-            string path = "/leads/attributes/{id}".Replace("{id}", id);
+            string path = "/attributes/{id}".Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -67,7 +67,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CreateLeadAttribute()
         {
-            string path = "/leads/attributes";
+            string path = "/attributes";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -92,7 +92,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> UpdateLeadAttribute(string id)
         {
-            string path = "/leads/attributes/{id}".Replace("{id}", id);
+            string path = "/attributes/{id}".Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {

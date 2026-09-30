@@ -22,10 +22,11 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> EmailFinder(string domain, string firstName, string lastName, string webhookUrl = null)
         {
-            string path = "/email-finder/{domain}".Replace("{domain}", domain);
+            string path = "/email-finder";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "domain", domain },
                 { "first_name", firstName },
                 { "last_name", lastName }
             };

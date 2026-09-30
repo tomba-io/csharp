@@ -24,10 +24,11 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> DomainSearch(string domain, int? page = 1, int? limit = 10, string department = "", bool? enrichMobile = null, string webhookUrl = null)
         {
-            string path = "/domain-search/{domain}".Replace("{domain}", domain);
+            string path = "/domain-search";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "domain", domain },
                 { "page", page },
                 { "limit", limit },
                 { "department", department }

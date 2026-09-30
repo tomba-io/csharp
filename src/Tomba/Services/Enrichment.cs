@@ -20,7 +20,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> PersonAsync(string email, string webhookUrl = null)
         {
-            string path = "/enrichment/person";
+            string path = "/people/find";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -51,7 +51,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CompanyAsync(string domain)
         {
-            string path = "/enrichment/company";
+            string path = "/companies/find";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -77,7 +77,7 @@ namespace Tomba
         /// <exception cref="TombaException">Thrown on API error</exception>
         public async Task<HttpResponseMessage> CombinedAsync(string email)
         {
-            string path = "/enrichment/combined";
+            string path = "/combined/find";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {

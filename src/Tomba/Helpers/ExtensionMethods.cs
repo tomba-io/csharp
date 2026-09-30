@@ -31,12 +31,12 @@ namespace Tomba
                     {
                         foreach (object entry in (dynamic)parameter.Value)
                         {
-                            query.Add(parameter.Key + "[]=" + Uri.EscapeUriString(entry.ToString()));
+                            query.Add(parameter.Key + "[]=" + Uri.EscapeDataString(entry.ToString()));
                         }
                     }
                     else
                     {
-                        query.Add(parameter.Key + "=" + Uri.EscapeUriString(parameter.Value.ToString()));
+                        query.Add(parameter.Key + "=" + Uri.EscapeDataString(parameter.Value.ToString()));
                     }
                 }
             }
