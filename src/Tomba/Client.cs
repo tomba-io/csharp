@@ -51,7 +51,7 @@ namespace Tomba
                 new Dictionary<string, string>()
                 {
                     { "content-type", "application/json" },
-                    { "x-sdk-version", "tomba:dotnet:v1.0.1" }
+                    { "x-sdk-version", "tomba:dotnet:v1.1.1" }
                 };
             this.config = new Dictionary<string, string>();
             this.http = http;
