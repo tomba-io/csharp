@@ -119,7 +119,7 @@ namespace Tomba
         {
             ValidateType(type);
 
-            string path = "/bulk/{type}/{id}/launch".Replace("{type}", type).Replace("{id}", id);
+            string path = "/bulk/{type}/{id}".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -130,7 +130,7 @@ namespace Tomba
                 { "content-type", "application/json" }
             };
 
-            return await _client.Call("POST", path, headers, parameters);
+            return await _client.Call("PUT", path, headers, parameters);
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace Tomba
         {
             ValidateType(type);
 
-            string path = "/bulk/{type}/{id}".Replace("{type}", type).Replace("{id}", id);
+            string path = "/bulk/{type}/{id}/delete".Replace("{type}", type).Replace("{id}", id);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -186,7 +186,7 @@ namespace Tomba
                 { "content-type", "application/json" }
             };
 
-            return await _client.Call("POST", path, headers, parameters);
+            return await _client.Call("DELETE", path, headers, parameters);
         }
 
         /// <summary>
